@@ -760,21 +760,6 @@
           <!-- Logo / title in top bar -->
           <div class="logo">My Tech <em>Journal</em></div>
         </div>
-        <!-- Live stats — update automatically as you add entries -->
-        <div class="stats-row">
-          <div class="stat">
-            <div class="stat-num" id="total-count">0</div>
-            <div class="stat-label">Entries</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num" id="proven-count">0</div>
-            <div class="stat-label">Proven</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num" id="used-count">0</div>
-            <div class="stat-label">In prod</div>
-          </div>
-        </div>
       </div>
 
       <div class="controls">
@@ -841,18 +826,17 @@
               <!-- <option value="Cloud">Cloud</option> -->
             </select>
           </div>
-          <div class="form-field">
-            <label>Status</label>
-            <select id="f-status">
-              <option value="learning">Learning</option>
-              <option value="comfortable">Comfortable</option>
-              <option value="used">Used in a real project</option>
-            </select>
-          </div>
           <div class="form-field full">
-            <label>Code snippet (paste something you wrote)</label>
-            <textarea id="f-code" style="min-height:90px; font-family:'DM Mono',monospace; font-size:12px;" placeholder="from sklearn... / docker run... / your actual code"></textarea>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+              <input type="checkbox" id="toggle-code" style="accent-color:var(--accent);width:14px;height:14px;"/>
+              Add a code snippet?
+            </label>
           </div>
+          <div class="form-field full" id="code-field" style="display:none;">
+            <label>Code snippet</label>
+            <textarea id="f-code" style="min-height:90px;font-family:'DM Mono',monospace;font-size:12px;" placeholder="paste your code here..."></textarea>
+          </div>
+
           <div class="form-field full">
             <label>GitHub proof link *</label>
             <input type="text" id="f-github" placeholder="https://github.com/yourname/your-project" />
@@ -1140,6 +1124,9 @@ print(result)
       renderEntries();
     });
 
+    document.getElementById('toggle-code').addEventListener('change', function() {
+    document.getElementById('code-field').style.display = this.checked ? 'block' : 'none';
+    });
     // ---- Boot ----
     loadEntries();
     updateStats();
