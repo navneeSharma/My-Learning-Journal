@@ -900,7 +900,8 @@ print(result)
         }
       } else {
         // New entry
-        entries.unshift({ id: Date.now(), ...entryData });
+        entries.push({ id: Date.now(), ...entryData });
+        entries.sort((a, b) => a.term.localeCompare(b.term));
       }
 
       saveEntries();
