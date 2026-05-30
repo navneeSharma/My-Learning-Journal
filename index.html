@@ -3,54 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ============================================================
-    PAGE TITLE — shown in browser tab and search engines
-  ============================================================ -->
-  <title>Navnee's Tech Journal</title>
-
-  <!-- ============================================================
-    FONTS — change these to swap typography
-    Browse free fonts at https://fonts.google.com
-    Replace the font names in the @import URL and the font-family
-    values in the CSS below
-  ============================================================ -->
+  <title>My Tech Journal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tabler Icons (free icon set — 5800+ icons) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-
   <style>
     /* ============================================================
-      COLOUR PALETTE — change everything here to retheme the app
-      Just replace the hex values below and the whole app updates
+      COLOUR PALETTE — edit hex values here to retheme
     ============================================================ */
     :root {
-      /* -- Main accent colour (buttons, links, proof badges, dots) -- */
-      --accent:          #B8705A;   /* terracotta */
-      --accent-light:    #F2DDD4;   /* pale rose tint */
-      --accent-mid:      #D9A898;   /* medium tint, used for borders */
-      --accent-dark:     #8B4A38;   /* darker hover shade */
-      --plum:            #5C3D35;   /* deep warm brown — replaces black */
+      --accent:          #B8705A;
+      --accent-light:    #F2DDD4;
+      --accent-mid:      #D9A898;
+      --accent-dark:     #8B4A38;
+      --plum:            #5C3D35;
 
-      /* -- Page background -- */
-      --bg-page:         #D9C8B8;   /* warm ivory */
-      --bg-card:         #F0E6DC;   /* warm card surface */
-      --bg-code:         #F2EBE4;   /* code block background */
+      /* -- Backgrounds -- */
+      --bg-page:         #D9C8B8;   /* page background */
+      --bg-card:         #F0E6DC;   /* card surface */
+      --bg-code:         #E4D5C4;   /* code block */
 
-      /* -- Text colours -- */
-      --text-primary:    #3D2218;   /* dark warm brown */
-      --text-secondary:  #6B4438;   /* body text */
-      --text-tertiary:   #A87060;   /* hints, dates, labels */
+      /* -- Text -- */
+      --text-primary:    #3D2218;
+      --text-secondary:  #6B4438;
+      --text-tertiary:   #A87060;
 
       /* -- Borders -- */
-      --border:          rgba(184,112,90,0.15);
-      --border-hover:    rgba(184,112,90,0.30);
+      --border:          rgba(184,112,90,0.18);
+      --border-hover:    rgba(184,112,90,0.35);
 
-      /* -- Category badge colours (bg / text pairs) --
-         Add more rows here if you add new categories below      */
+      /* -- Category badges -- */
       --badge-ml-bg:     #F2DDD4;  --badge-ml-text:     #7A3820;
       --badge-devops-bg: #D4C5E8;  --badge-devops-text: #3D2A5C;
       --badge-dl-bg:     #C5DFD4;  --badge-dl-text:     #1F4D3A;
@@ -59,13 +42,9 @@
       --badge-ai-bg:     #D4E4F5;  --badge-ai-text:     #1A3A5C;
     }
 
-    /* ============================================================
-      BASE RESET & BODY
-    ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      /* -- Change font-family here to swap the body font -- */
       font-family: 'Outfit', sans-serif;
       background: var(--bg-page);
       color: var(--text-primary);
@@ -73,8 +52,7 @@
     }
 
     /* ============================================================
-      INTRO / LANDING PAGE
-      Shown first. User clicks "Enter Lexicon" to see entries.
+      INTRO PAGE
     ============================================================ */
     #intro-page {
       min-height: 100vh;
@@ -85,10 +63,7 @@
       background: var(--bg-page);
     }
 
-    .intro-inner {
-      max-width: 600px;
-      width: 100%;
-    }
+    .intro-inner { max-width: 580px; width: 100%; }
 
     .intro-eyebrow {
       font-size: 11px;
@@ -100,40 +75,38 @@
     }
 
     .intro-title {
-      /* -- Change font-family here to swap the display/heading font -- */
       font-family: 'DM Serif Display', serif;
       font-size: clamp(36px, 6vw, 56px);
       line-height: 1.1;
       color: var(--text-primary);
-      margin-bottom: 0.5rem;
       letter-spacing: -1px;
+      margin-bottom: 1rem;
     }
 
-    .intro-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .intro-title em { font-style: italic; color: var(--accent); }
 
-    /* ============================================================
-      INTRO — ABOUT TEXT
-      Edit the paragraph inside index.html to change this blurb
-    ============================================================ */
     .intro-about {
       font-size: 15px;
       line-height: 1.75;
       color: var(--text-secondary);
-      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
       padding: 1.25rem 1.5rem;
       border-left: 3px solid var(--accent);
       background: var(--bg-card);
       border-radius: 0 8px 8px 0;
     }
 
+    .intro-about a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .intro-rules {
-      margin-top: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-bottom: 2rem;
     }
 
     .rule-item {
@@ -146,52 +119,30 @@
     }
 
     .rule-icon {
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       border-radius: 50%;
       background: var(--accent-light);
       color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 14px;
     }
 
-    .intro-cta {
-      margin-top: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .intro-cta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
     .btn-enter {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       padding: 12px 24px;
-      font-size: 14px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      background: var(--plum);
-      color: var(--bg-page);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      letter-spacing: 0.2px;
+      font-size: 14px; font-family: 'Outfit', sans-serif; font-weight: 600;
+      background: var(--plum); color: var(--bg-page);
+      border: none; border-radius: 8px; cursor: pointer;
       transition: background 0.15s;
     }
-
     .btn-enter:hover { background: var(--text-primary); }
 
-    .intro-note {
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
+    .intro-note { font-size: 12px; color: var(--text-tertiary); }
 
     /* ============================================================
-      MAIN LEXICON PAGE
-      Hidden initially, shown after clicking "Enter Lexicon"
+      LEXICON PAGE
     ============================================================ */
     #lexicon-page {
       display: none;
@@ -200,218 +151,122 @@
       padding: 2rem 1.5rem 4rem;
     }
 
-    /* ============================================================
-      TOP HEADER
-    ============================================================ */
-    .header {
-      margin-bottom: 2rem;
-    }
+    .header { margin-bottom: 2rem; }
 
     .header-top {
-      display: flex;
-      align-items: flex-end;
+      display: flex; align-items: center;
       justify-content: space-between;
       margin-bottom: 1.25rem;
-      flex-wrap: wrap;
-      gap: 1rem;
+      flex-wrap: wrap; gap: 1rem;
     }
-
-    .logo {
-      /* -- Change font-family to swap logo font -- */
-      font-family: 'DM Serif Display', serif;
-      font-size: 30px;
-      line-height: 1;
-      color: var(--text-primary);
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo em { font-style: italic; color: var(--accent); }
 
     .back-btn {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      background: none;
-      border: none;
-      cursor: pointer;
+      font-size: 13px; color: var(--text-tertiary);
+      background: none; border: none; cursor: pointer;
       font-family: 'Outfit', sans-serif;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 0;
-      margin-bottom: 4px;
-      transition: color 0.15s;
+      display: flex; align-items: center; gap: 4px;
+      padding: 0; margin-bottom: 4px; transition: color 0.15s;
     }
-
     .back-btn:hover { color: var(--text-primary); }
 
-    .stats-row { display: flex; gap: 20px; }
-
-    .stat { text-align: center; }
-
-    .stat-num {
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1;
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px; line-height: 1;
+      color: var(--text-primary); letter-spacing: -0.5px;
     }
+    .logo em { font-style: italic; color: var(--accent); }
 
-    .stat-label {
-      font-size: 11px;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
-    }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
-    /* ============================================================
-      SEARCH & FILTER BAR
-    ============================================================ */
-    .controls {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .search-wrap {
-      position: relative;
-      flex: 1;
-      min-width: 180px;
-    }
-
+    .search-wrap { position: relative; flex: 1; min-width: 180px; }
     .search-wrap i {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      color: var(--text-tertiary);
-      pointer-events: none;
+      position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+      font-size: 16px; color: var(--text-tertiary); pointer-events: none;
     }
-
     .search-wrap input {
-      width: 100%;
-      padding: 8px 12px 8px 34px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-card);
-      color: var(--text-primary);
-      outline: none;
-      transition: border-color 0.15s;
+      width: 100%; padding: 8px 12px 8px 34px;
+      font-family: 'Outfit', sans-serif; font-size: 14px;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg-card); color: var(--text-primary);
+      outline: none; transition: border-color 0.15s;
     }
-
     .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap input::placeholder { color: var(--text-tertiary); }
 
-    /* ============================================================
-      FILTER BUTTONS
-      Add more buttons here if you add new categories
-    ============================================================ */
     .filter-btns { display: flex; gap: 4px; flex-wrap: wrap; }
 
     .filter-btn {
-      padding: 6px 13px;
-      font-size: 12px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 500;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: transparent;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.15s;
+      padding: 6px 13px; font-size: 12px;
+      font-family: 'Outfit', sans-serif; font-weight: 500;
+      border: 1px solid var(--border); border-radius: 20px;
+      background: transparent; color: var(--text-secondary);
+      cursor: pointer; transition: all 0.15s;
     }
-
     .filter-btn:hover { background: var(--accent-light); }
-
-    .filter-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
 
     .add-btn {
-      padding: 8px 15px;
-      font-size: 13px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      background: var(--plum);
-      color: var(--bg-page);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      padding: 8px 15px; font-size: 13px;
+      font-family: 'Outfit', sans-serif; font-weight: 600;
+      background: var(--plum); color: var(--bg-page);
+      border: none; border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; gap: 5px;
       transition: background 0.15s;
     }
-
     .add-btn:hover { background: var(--text-primary); }
 
     /* ============================================================
-      ENTRY CARDS GRID
+      ENTRY CARDS
     ============================================================ */
     .entries-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 12px;
-      margin-top: 1.5rem;
+      gap: 12px; margin-top: 1.5rem;
     }
 
     .entry-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.2rem;
+      border-radius: 12px; padding: 1rem 1.2rem;
       cursor: pointer;
       transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+      position: relative;
     }
-
     .entry-card:hover {
-      border-color: var(--accent-mid);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(184,112,90,0.10);
+      border-color: var(--accent-mid); transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(184,112,90,0.12);
     }
-
     .entry-card.expanded { grid-column: 1 / -1; }
 
     .card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 6px;
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 8px; margin-bottom: 6px;
     }
 
-    /* -- Term name in cards -- */
     .term {
       font-family: 'DM Serif Display', serif;
-      font-size: 19px;
-      color: var(--text-primary);
-      line-height: 1.2;
+      font-size: 19px; color: var(--text-primary); line-height: 1.2;
     }
 
-    /* ============================================================
-      CATEGORY BADGES
-      To add a new category:
-      1. Add a new --badge-xxx-bg and --badge-xxx-text in :root above
-      2. Add a new .badge-xxx rule below
-      3. Add the category to the CATEGORY_STYLES object in JS below
-      4. Add a filter button in the HTML filter-btns section
-    ============================================================ */
+    .card-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+
+    /* Edit / Delete buttons — hidden until hover */
+    .card-actions { display: flex; gap: 4px; opacity: 0; transition: opacity 0.15s; }
+    .entry-card:hover .card-actions { opacity: 1; }
+
+    .action-btn {
+      width: 26px; height: 26px; border-radius: 6px; border: none;
+      background: var(--accent-light); color: var(--accent-dark);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; transition: background 0.15s;
+    }
+    .action-btn:hover { background: var(--accent-mid); }
+    .action-btn.delete:hover { background: #F5D0C8; color: #8B2218; }
+
     .badge {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-size: 11px; font-weight: 600;
+      padding: 3px 9px; border-radius: 20px; white-space: nowrap;
     }
-
     .badge-ml     { background: var(--badge-ml-bg);     color: var(--badge-ml-text); }
     .badge-devops { background: var(--badge-devops-bg); color: var(--badge-devops-text); }
     .badge-dl     { background: var(--badge-dl-bg);     color: var(--badge-dl-text); }
@@ -419,335 +274,205 @@
     .badge-stats  { background: var(--badge-stats-bg);  color: var(--badge-stats-text); }
     .badge-ai     { background: var(--badge-ai-bg);     color: var(--badge-ai-text); }
 
-    /* ============================================================
-      STATUS INDICATOR (dot + label)
-    ============================================================ */
-    .status-wrap {
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      color: var(--text-tertiary);
-      margin-bottom: 8px;
-      gap: 5px;
+    .card-date {
+      font-size: 11px; color: var(--text-tertiary);
+      font-family: 'DM Mono', monospace; margin-bottom: 8px;
     }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* -- Change these colours to restyle the status dots -- */
-    .status-learning   .status-dot { background: #C4933A; }
-    .status-comfortable .status-dot { background: var(--accent); }
-    .status-used       .status-dot { background: var(--plum); }
 
     .definition-preview {
-      font-size: 13px;
-      color: var(--text-secondary);
+      font-size: 13px; color: var(--text-secondary);
       line-height: 1.6;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
     }
-
     .entry-card.expanded .definition-preview {
-      -webkit-line-clamp: unset;
-      overflow: visible;
+      -webkit-line-clamp: unset; overflow: visible;
     }
 
-    /* ============================================================
-      PROOF LINK (GitHub badge on each card)
-    ============================================================ */
     .proof-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 12px;
-      color: var(--accent-dark);
-      font-family: 'DM Mono', monospace;
-      text-decoration: none;
-      margin-top: 10px;
-      padding: 4px 9px;
-      border: 1px solid var(--accent-mid);
-      border-radius: 5px;
-      background: var(--accent-light);
-      transition: background 0.15s;
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; color: var(--accent-dark);
+      font-family: 'DM Mono', monospace; text-decoration: none;
+      margin-top: 10px; padding: 4px 9px;
+      border: 1px solid var(--accent-mid); border-radius: 5px;
+      background: var(--accent-light); transition: background 0.15s;
     }
-
     .proof-link:hover { background: var(--accent-mid); }
 
-    /* ============================================================
-      EXPANDED CARD CONTENT
-    ============================================================ */
     .expanded-body {
-      display: none;
-      margin-top: 14px;
-      border-top: 1px solid var(--border);
-      padding-top: 14px;
+      display: none; margin-top: 14px;
+      border-top: 1px solid var(--border); padding-top: 14px;
     }
-
     .entry-card.expanded .expanded-body { display: block; }
 
     .section-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-tertiary);
-      margin-bottom: 7px;
-      margin-top: 16px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-tertiary);
+      margin-bottom: 7px; margin-top: 16px;
     }
-
     .section-label:first-child { margin-top: 0; }
 
-    /* ============================================================
-      CODE BLOCK
-      Change font-family here to swap the monospace font
-    ============================================================ */
     .code-block {
-      background: var(--bg-code);
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      padding: 11px 13px;
-      font-family: 'DM Mono', monospace;  /* ← swap mono font here */
-      font-size: 12.5px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      overflow-x: auto;
-      white-space: pre;
+      background: var(--bg-code); border: 1px solid var(--border);
+      border-radius: 7px; padding: 11px 13px;
+      font-family: 'DM Mono', monospace; font-size: 12.5px;
+      color: var(--text-secondary); line-height: 1.65;
+      overflow-x: auto; white-space: pre;
     }
 
     .resources-list { display: flex; flex-direction: column; gap: 5px; }
-
     .resource-item {
-      font-size: 13px;
-      color: var(--accent-dark);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      line-height: 1.4;
+      font-size: 13px; color: var(--accent-dark); text-decoration: none;
+      display: flex; align-items: center; gap: 5px; line-height: 1.4;
     }
-
     .resource-item.text-resource { color: var(--text-secondary); }
     .resource-item:hover { text-decoration: underline; }
 
     .date-added {
-      font-size: 11px;
-      color: var(--text-tertiary);
-      margin-top: 14px;
-      font-family: 'DM Mono', monospace;
+      font-size: 11px; color: var(--text-tertiary);
+      margin-top: 14px; font-family: 'DM Mono', monospace;
     }
 
     .collapse-btn {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px 0 0;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-family: 'Outfit', sans-serif;
-      transition: color 0.15s;
+      font-size: 12px; color: var(--text-tertiary);
+      background: none; border: none; cursor: pointer;
+      padding: 8px 0 0; display: flex; align-items: center; gap: 4px;
+      font-family: 'Outfit', sans-serif; transition: color 0.15s;
     }
-
     .collapse-btn:hover { color: var(--text-primary); }
 
     .empty-state {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--text-tertiary);
-      font-size: 14px;
-      grid-column: 1 / -1;
+      text-align: center; padding: 3rem 1rem;
+      color: var(--text-tertiary); font-size: 14px; grid-column: 1 / -1;
     }
 
     /* ============================================================
-      ADD ENTRY MODAL
+      MODAL
     ============================================================ */
     .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(61,34,24,0.40);
-      z-index: 200;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 2rem 1rem;
-      overflow-y: auto;
+      display: none; position: fixed; inset: 0;
+      background: rgba(61,34,24,0.45); z-index: 200;
+      align-items: flex-start; justify-content: center;
+      padding: 2rem 1rem; overflow-y: auto;
     }
-
     .modal-overlay.open { display: flex; }
 
     .modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border-hover);
-      border-radius: 14px;
-      padding: 1.75rem;
-      width: 100%;
-      max-width: 580px;
-      margin: auto;
+      background: var(--bg-card); border: 1px solid var(--border-hover);
+      border-radius: 14px; padding: 1.75rem; width: 100%; max-width: 560px;
+      margin: auto; max-height: 90vh; overflow-y: auto;
     }
 
     .modal-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      margin-bottom: 1.5rem;
-      color: var(--text-primary);
+      font-size: 22px; margin-bottom: 1.5rem; color: var(--text-primary);
     }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
+    .form-stack { display: flex; flex-direction: column; gap: 14px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
     .form-field { display: flex; flex-direction: column; gap: 5px; }
-    .form-field.full { grid-column: 1 / -1; }
 
     .form-field label {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
+      font-size: 11px; font-weight: 700; color: var(--text-tertiary);
+      text-transform: uppercase; letter-spacing: 0.6px;
     }
 
     .form-field input,
     .form-field textarea,
     .form-field select {
-      font-family: 'Outfit', sans-serif;
-      font-size: 13px;
-      padding: 8px 10px;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      background: var(--bg-page);
-      color: var(--text-primary);
-      outline: none;
-      transition: border-color 0.15s;
-      resize: vertical;
+      font-family: 'Outfit', sans-serif; font-size: 13px;
+      padding: 9px 11px;
+      border: 1px solid var(--border); border-radius: 7px;
+      background: var(--bg-page); color: var(--text-primary);
+      outline: none; transition: border-color 0.15s; resize: vertical;
     }
-
     .form-field input:focus,
     .form-field textarea:focus,
     .form-field select:focus { border-color: var(--accent); }
-
     .form-field textarea { min-height: 75px; }
 
+    .toggle-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text-secondary); cursor: pointer;
+    }
+    .toggle-row input[type="checkbox"] {
+      accent-color: var(--accent); width: 15px; height: 15px; cursor: pointer;
+    }
+
     .form-actions {
-      display: flex;
-      gap: 8px;
-      justify-content: flex-end;
-      margin-top: 1.5rem;
+      display: flex; gap: 8px; justify-content: flex-end; margin-top: 1.5rem;
     }
 
     .btn-cancel {
-      padding: 8px 16px;
-      font-size: 13px;
-      font-family: 'Outfit', sans-serif;
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: background 0.15s;
+      padding: 8px 16px; font-size: 13px; font-family: 'Outfit', sans-serif;
+      background: none; border: 1px solid var(--border); border-radius: 7px;
+      color: var(--text-secondary); cursor: pointer; transition: background 0.15s;
     }
-
     .btn-cancel:hover { background: var(--accent-light); }
 
     .btn-save {
-      padding: 8px 18px;
-      font-size: 13px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 7px;
-      cursor: pointer;
-      transition: background 0.15s;
+      padding: 8px 18px; font-size: 13px;
+      font-family: 'Outfit', sans-serif; font-weight: 600;
+      background: var(--accent); color: white;
+      border: none; border-radius: 7px; cursor: pointer; transition: background 0.15s;
     }
-
     .btn-save:hover { background: var(--accent-dark); }
 
-    /* ============================================================
-      RESPONSIVE — smaller screens
-    ============================================================ */
     @media (max-width: 600px) {
-      .form-grid { grid-template-columns: 1fr; }
-      .form-field.full { grid-column: 1; }
+      .form-row { grid-template-columns: 1fr; }
+      .intro-title { font-size: 38px; }
       .header-top { flex-direction: column; align-items: flex-start; }
-      .intro-title { font-size: 36px; }
     }
   </style>
 </head>
 <body>
 
   <!-- ============================================================
-    INTRO / LANDING PAGE
-    Edit the text below to personalise this intro screen.
-    It shows before the user enters the dictionary.
+    INTRO PAGE — edit all visible text here
   ============================================================ -->
   <div id="intro-page">
     <div class="intro-inner">
+      <p class="intro-eyebrow">My Learning Journey</p>
 
-      <!-- ============================================================
-        MAIN TITLE — edit the words inside <em> tags for the italic part
-      ============================================================ -->
-      <h1 class="intro-title">Navnee's Tech <em>Journal</em></h1>
+      <!-- Edit title — wrap a word in <em> for italic accent colour -->
+      <h1 class="intro-title">Navnee's <em> Tech Journal</em></h1>
 
-      <!-- ============================================================
-        SUBTITLE — edit this freely. <a> tag makes a clickable link.
-      ============================================================ -->
+      <!-- Edit this blurb freely -->
       <p class="intro-about">
-        A <a href="https://www.oxfordlearnersdictionaries.com/definition/english/dictionary" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;">dictionary</a> lists the words of a language — this is mine for tech.
-        A living digital lexicon of every concept, tool, and algorithm I've genuinely understood,
-        built, and proven with real code.
+        A <a href="https://www.oxfordlearnersdictionaries.com/definition/english/dictionary" target="_blank" rel="noopener">dictionary</a> lists the words of a language — this is mine for tech.
+        A living digital lexicon of every concept, tool, and algorithm I've genuinely understood.
       </p>
 
-      <!-- ============================================================
-        RULES — the 3 principles of your lexicon
-        Edit the text in each <span> to change the rules
-      ============================================================ -->
+      <!-- Edit the 3 principles below -->
       <div class="intro-rules">
         <div class="rule-item">
           <div class="rule-icon"><i class="ti ti-lock" aria-hidden="true"></i></div>
-          <span><strong>Proof-gated</strong> — every concept will be supported with a code that I actually used to understand the concept.</span>
+          <span><strong>Proof-gated</strong> — every entry links to code I actually wrote. No term gets in without evidence.</span>
         </div>
         <div class="rule-item">
           <div class="rule-icon"><i class="ti ti-pencil" aria-hidden="true"></i></div>
-          <span><strong>Definations</strong> — the definations could be from my person notes or even taken from websites, but would be the ones that helped me understand the concept best.</span>
+          <span><strong>My own words</strong> — definitions are how I understand it, not how a textbook explains it.</span>
         </div>
         <div class="rule-item">
           <div class="rule-icon"><i class="ti ti-trending-up" aria-hidden="true"></i></div>
-          <span><strong>Purpose</strong> — to show recruiters what I actually know, and to give myself a place to look back on everything I've learned. </span>
+          <span><strong>Living document</strong> — grows as I learn, proof-backed at every step.</span>
         </div>
       </div>
 
       <div class="intro-cta">
-        <!-- Button to enter the main lexicon -->
         <button class="btn-enter" id="enter-btn">
           Open Journal <i class="ti ti-arrow-right" aria-hidden="true"></i>
         </button>
-        <!-- Small note below the button — edit or remove as you like -->
-        <span class="intro-note">
-          <!-- ============================================================
-            ENTRY COUNT NOTE — update the number as you add more entries
-          ============================================================ -->
-          Currently <strong id="entry-count-note">—</strong> entries
-        </span>
+        <span class="intro-note">Currently <strong id="entry-count-note">—</strong> entries</span>
       </div>
-
     </div>
   </div>
 
+
   <!-- ============================================================
-    MAIN LEXICON PAGE
-    Everything below is the dictionary view
+    LEXICON PAGE
   ============================================================ -->
   <div id="lexicon-page">
 
@@ -755,10 +480,9 @@
       <div class="header-top">
         <div>
           <button class="back-btn" id="back-btn">
-            <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to intro
+            <i class="ti ti-arrow-left" aria-hidden="true"></i> Back
           </button>
-          <!-- Logo / title in top bar -->
-          <div class="logo">My Tech <em>Journal</em></div>
+          <div class="logo">Navnee's <em> Tech Journal</em></div>
         </div>
       </div>
 
@@ -768,20 +492,15 @@
           <input type="text" id="search-input" placeholder="Search terms, categories..." />
         </div>
 
-        <!-- ============================================================
-          FILTER BUTTONS
-          If you add a new category, add a matching button here.
-          The data-filter value must exactly match the category name in JS.
-        ============================================================ -->
+        <!-- Add a filter button for each new category you create -->
         <div class="filter-btns" id="filter-btns">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="AI">AI</button>
           <button class="filter-btn" data-filter="ML">ML</button>
-          <button class="filter-btn" data-filter="DevOps">DevOps</button>
           <button class="filter-btn" data-filter="Deep Learning">DL</button>
+          <button class="filter-btn" data-filter="DevOps">DevOps</button>
           <button class="filter-btn" data-filter="Python">Python</button>
           <button class="filter-btn" data-filter="Statistics">Stats</button>
-          <!-- Add more: <button class="filter-btn" data-filter="Cloud">Cloud</button> -->
         </div>
 
         <button class="add-btn" id="open-modal-btn">
@@ -790,61 +509,65 @@
       </div>
     </div>
 
-    <!-- Cards render here -->
     <div class="entries-grid" id="entries-grid"></div>
 
+
     <!-- ============================================================
-      ADD ENTRY MODAL
-      The form users fill in to add a new entry
+      ADD / EDIT MODAL
     ============================================================ -->
     <div class="modal-overlay" id="modal-overlay">
       <div class="modal">
-        <div class="modal-title">New entry</div>
-        <div class="form-grid">
-          <div class="form-field full">
+        <div class="modal-title" id="modal-title">New entry</div>
+        <div class="form-stack">
+
+          <div class="form-field">
             <label>Term *</label>
             <input type="text" id="f-term" placeholder="e.g. Gradient Descent" />
           </div>
-          <div class="form-field full">
-            <label>My definition — in your own words *</label>
-            <textarea id="f-def" placeholder="What it is, what it does, when you'd use it..."></textarea>
-          </div>
-          <!-- ============================================================
-            CATEGORY DROPDOWN
-            Add more <option> tags here to add new categories.
-            Make sure to also add a badge style and filter button above.
-          ============================================================ -->
+
           <div class="form-field">
-            <label>Category</label>
-            <select id="f-cat">
-              <option value="AI">AI</option>
-              <option value="ML">ML</option>
-              <option value="DevOps">DevOps</option>
-              <option value="Deep Learning">Deep Learning</option>
-              <option value="Python">Python</option>
-              <option value="Statistics">Statistics</option>
-              <!-- <option value="Cloud">Cloud</option> -->
-            </select>
-          </div>
-          <div class="form-field full">
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
-              <input type="checkbox" id="toggle-code" style="accent-color:var(--accent);width:14px;height:14px;"/>
-              Add a code snippet?
-            </label>
-          </div>
-          <div class="form-field full" id="code-field" style="display:none;">
-            <label>Code snippet</label>
-            <textarea id="f-code" style="min-height:90px;font-family:'DM Mono',monospace;font-size:12px;" placeholder="paste your code here..."></textarea>
+            <label>My definition — in your own words *</label>
+            <textarea id="f-def" placeholder="What it is, what it does, why it matters to you..."></textarea>
           </div>
 
-          <div class="form-field full">
-            <label>GitHub proof link *</label>
-            <input type="text" id="f-github" placeholder="https://github.com/yourname/your-project" />
+          <div class="form-row">
+            <div class="form-field">
+              <label>Category</label>
+              <select id="f-cat">
+                <option value="AI">AI</option>
+                <option value="ML">ML</option>
+                <option value="Deep Learning">Deep Learning</option>
+                <option value="DevOps">DevOps</option>
+                <option value="Python">Python</option>
+                <option value="Statistics">Statistics</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>GitHub proof link</label>
+              <input type="text" id="f-github" placeholder="https://github.com/..." />
+            </div>
           </div>
-          <div class="form-field full">
-            <label>Resources that helped (one per line)</label>
-            <textarea id="f-resources" placeholder="https://...&#10;Course / video name&#10;Book chapter"></textarea>
+
+          <!-- Code snippet toggle -->
+          <label class="toggle-row">
+            <input type="checkbox" id="toggle-code" />
+            Add a code snippet?
+          </label>
+          <div class="form-field" id="code-field" style="display:none;">
+            <label>Code snippet</label>
+            <textarea id="f-code" style="min-height:90px;font-family:'DM Mono',monospace;font-size:12px;" placeholder="Paste your code here..."></textarea>
           </div>
+
+          <!-- Resources toggle -->
+          <label class="toggle-row">
+            <input type="checkbox" id="toggle-resources" />
+            Add resources that helped?
+          </label>
+          <div class="form-field" id="resources-field" style="display:none;">
+            <label>Resources (one per line)</label>
+            <textarea id="f-resources" placeholder="https://...&#10;Course name&#10;Book chapter"></textarea>
+          </div>
+
         </div>
         <div class="form-actions">
           <button class="btn-cancel" id="close-modal-btn">Cancel</button>
@@ -853,22 +576,20 @@
       </div>
     </div>
 
-  </div><!-- end #lexicon-page -->
+  </div>
 
 
   <script>
     // ============================================================
-    //  LOCAL STORAGE KEY
-    //  Change this string if you want a fresh slate (old data stays
-    //  under the old key but won't be loaded)
+    //  CHANGE THIS PASSWORD to lock the Add Entry button
     // ============================================================
-    const STORAGE_KEY = 'tech_journal_v1';
+    const PASSWORD = 'yourpassword';
+
+    const STORAGE_KEY = 'tech_journal_v2';
 
     // ============================================================
     //  CATEGORY → BADGE CLASS MAP
-    //  If you add a new category, add it here too.
-    //  Key = category name (must match option value in select)
-    //  Value = CSS class name defined above
+    //  Add new entries here when you add new categories
     // ============================================================
     const CATEGORY_STYLES = {
       'AI':            'badge-ai',
@@ -877,25 +598,11 @@
       'Deep Learning': 'badge-dl',
       'Python':        'badge-py',
       'Statistics':    'badge-stats',
-      // 'Cloud':      'badge-cloud',   ← add new categories here
     };
 
     // ============================================================
-    //  STATUS LABELS
-    //  Change the display text for each status here
-    // ============================================================
-    const STATUS_LABEL = {
-      learning:    'Learning',
-      comfortable: 'Comfortable',
-      used:        'Used in a real project',
-    };
-
-    // ============================================================
-    //  INITIAL ENTRIES
-    //  These show when the page is opened for the very first time.
-    //  After that, entries are saved to localStorage.
-    //  Replace the github URL with your real repo when you have one.
-    //  Set DEFAULT_ENTRIES = [] to start completely empty.
+    //  DEFAULT ENTRY — shown on first load
+    //  Replace github URL with your real repo
     // ============================================================
     const DEFAULT_ENTRIES = [
       {
@@ -903,67 +610,56 @@
         term: 'Artificial Intelligence',
         definition: 'A broad field of computer science focused on building systems that can perform tasks that would normally require human intelligence — things like understanding language, recognising patterns, making decisions, and learning from experience. It\'s the umbrella that everything else I\'m studying (ML, deep learning, NLP) sits under.',
         category: 'AI',
-        status: 'learning',
-        // ---- Code snippet: paste your actual code here ----
-        code: `# A simple example: using an AI library to classify text sentiment
+        code: `# Simple AI example: sentiment analysis
 from transformers import pipeline
 
 classifier = pipeline("sentiment-analysis")
 result = classifier("I really enjoyed learning about AI today!")
 print(result)
-# Output: [{'label': 'POSITIVE', 'score': 0.9998}]`,
-        // ---- Replace this with your actual GitHub repo URL ----
+# [{'label': 'POSITIVE', 'score': 0.9998}]`,
         github: 'https://github.com',
         resources: [
           'https://www.ibm.com/topics/artificial-intelligence',
           'Elements of AI — free online course (elementsofai.com)',
           'AI for Everyone — Andrew Ng on Coursera',
         ],
-        // ---- Date format: YYYY-MM-DD ----
         date: '2025-05-30',
       },
     ];
 
-    // ============================================================
-    //  APP STATE — don't need to edit below here normally
-    // ============================================================
-    let entries = [];
+    let entries    = [];
     let activeFilter = 'all';
     let searchQuery  = '';
     let expandedId   = null;
+    let editingId    = null;
 
-    // ---- Persistence ----
     function loadEntries() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         entries = raw ? JSON.parse(raw) : DEFAULT_ENTRIES;
-      } catch(e) {
-        entries = DEFAULT_ENTRIES;
-      }
+      } catch(e) { entries = DEFAULT_ENTRIES; }
     }
 
     function saveEntries() {
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(entries)); }
-      catch(e) { console.warn('Could not save entries:', e); }
+      catch(e) { console.warn('Save failed:', e); }
     }
 
-    // ---- Stats ----
-    function updateStats() {
-      document.getElementById('total-count').textContent  = entries.length;
-      document.getElementById('proven-count').textContent = entries.filter(e => e.github).length;
-      document.getElementById('used-count').textContent   = entries.filter(e => e.status === 'used').length;
-      const noteEl = document.getElementById('entry-count-note');
-      if (noteEl) noteEl.textContent = entries.length;
+    function updateNote() {
+      const el = document.getElementById('entry-count-note');
+      if (el) el.textContent = entries.length;
     }
 
-    // ---- Render cards ----
+    // ============================================================
+    //  RENDER CARDS
+    // ============================================================
     function renderEntries() {
       const grid = document.getElementById('entries-grid');
-
       let filtered = entries;
-      if (activeFilter !== 'all') {
+
+      if (activeFilter !== 'all')
         filtered = filtered.filter(e => e.category === activeFilter);
-      }
+
       if (searchQuery) {
         const q = searchQuery.toLowerCase();
         filtered = filtered.filter(e =>
@@ -975,7 +671,7 @@ print(result)
 
       if (filtered.length === 0) {
         grid.innerHTML = `<div class="empty-state">
-          <i class="ti ti-books" style="font-size:36px;display:block;margin-bottom:10px;opacity:0.35" aria-hidden="true"></i>
+          <i class="ti ti-books" style="font-size:36px;display:block;margin-bottom:10px;opacity:0.35"></i>
           No entries yet — add your first one!
         </div>`;
         return;
@@ -983,16 +679,16 @@ print(result)
 
       grid.innerHTML = filtered.map(entry => {
         const isExpanded = expandedId === entry.id;
-        const badgeClass = CATEGORY_STYLES[entry.category] || 'badge-ml';
+        const badgeClass = CATEGORY_STYLES[entry.category] || 'badge-ai';
         const resources  = (entry.resources || []).filter(Boolean);
 
         const resourcesHtml = resources.map(r =>
           r.startsWith('http')
             ? `<a class="resource-item" href="${r}" target="_blank" rel="noopener">
-                 <i class="ti ti-external-link" style="font-size:13px;flex-shrink:0" aria-hidden="true"></i>${r}
+                 <i class="ti ti-external-link" style="font-size:13px;flex-shrink:0"></i>${r}
                </a>`
             : `<span class="resource-item text-resource">
-                 <i class="ti ti-book" style="font-size:13px;flex-shrink:0" aria-hidden="true"></i>${r}
+                 <i class="ti ti-book" style="font-size:13px;flex-shrink:0"></i>${r}
                </span>`
         ).join('');
 
@@ -1000,25 +696,25 @@ print(result)
 <div class="entry-card ${isExpanded ? 'expanded' : ''}" data-id="${entry.id}">
   <div class="card-top">
     <div class="term">${entry.term}</div>
-    <div>
+    <div class="card-right">
+      <div class="card-actions">
+        <button class="action-btn edit-btn" data-id="${entry.id}" title="Edit">
+          <i class="ti ti-pencil"></i>
+        </button>
+        <button class="action-btn delete delete-btn" data-id="${entry.id}" title="Delete">
+          <i class="ti ti-trash"></i>
+        </button>
+      </div>
       <span class="badge ${badgeClass}">${entry.category}</span>
     </div>
   </div>
-
-  <div class="status-wrap status-${entry.status}">
-    <span class="status-dot"></span>
-    ${STATUS_LABEL[entry.status] || entry.status}
-    <span style="margin-left:auto;font-family:'DM Mono',monospace;font-size:11px;">${entry.date}</span>
-  </div>
-
+  <div class="card-date">${entry.date}</div>
   <div class="definition-preview">${entry.definition}</div>
-
   ${entry.github
     ? `<a class="proof-link" href="${entry.github}" target="_blank" rel="noopener">
-         <i class="ti ti-brand-github" aria-hidden="true"></i>View proof
+         <i class="ti ti-brand-github"></i>View proof
        </a>`
     : ''}
-
   <div class="expanded-body">
     ${entry.code
       ? `<div class="section-label">Code snippet</div>
@@ -1030,16 +726,16 @@ print(result)
       : ''}
     <div class="date-added">Added ${entry.date}</div>
     <button class="collapse-btn" data-collapse="${entry.id}">
-      <i class="ti ti-chevron-up" style="font-size:13px" aria-hidden="true"></i> Collapse
+      <i class="ti ti-chevron-up" style="font-size:13px"></i> Collapse
     </button>
   </div>
 </div>`;
       }).join('');
 
-      // Click to expand/collapse cards
+      // Expand / collapse
       grid.querySelectorAll('.entry-card').forEach(card => {
         card.addEventListener('click', e => {
-          if (e.target.closest('a') || e.target.closest('.collapse-btn')) return;
+          if (e.target.closest('a') || e.target.closest('button')) return;
           const id = parseInt(card.dataset.id);
           expandedId = expandedId === id ? null : id;
           renderEntries();
@@ -1049,11 +745,84 @@ print(result)
       grid.querySelectorAll('[data-collapse]').forEach(btn => {
         btn.addEventListener('click', () => { expandedId = null; renderEntries(); });
       });
+
+      // Delete
+      grid.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const id = parseInt(btn.dataset.id);
+          if (confirm('Delete this entry?')) {
+            entries = entries.filter(en => en.id !== id);
+            if (expandedId === id) expandedId = null;
+            saveEntries();
+            updateNote();
+            renderEntries();
+          }
+        });
+      });
+
+      // Edit
+      grid.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const id = parseInt(btn.dataset.id);
+          openEditModal(id);
+        });
+      });
     }
 
-    // ---- Page navigation ----
+    // ============================================================
+    //  MODAL HELPERS
+    // ============================================================
+    function resetModal() {
+      document.getElementById('f-term').value = '';
+      document.getElementById('f-def').value  = '';
+      document.getElementById('f-github').value = '';
+      document.getElementById('f-code').value = '';
+      document.getElementById('f-resources').value = '';
+      document.getElementById('toggle-code').checked = false;
+      document.getElementById('toggle-resources').checked = false;
+      document.getElementById('code-field').style.display = '';
+      document.getElementById('resources-field').style.display = '';
+      // hide both
+      document.getElementById('code-field').style.display = 'none';
+      document.getElementById('resources-field').style.display = 'none';
+      editingId = null;
+      document.getElementById('modal-title').textContent = 'New entry';
+      document.getElementById('save-btn').textContent = 'Save entry';
+    }
+
+    function openEditModal(id) {
+      const entry = entries.find(e => e.id === id);
+      if (!entry) return;
+      editingId = id;
+      document.getElementById('modal-title').textContent = 'Edit entry';
+      document.getElementById('save-btn').textContent = 'Update entry';
+      document.getElementById('f-term').value    = entry.term;
+      document.getElementById('f-def').value     = entry.definition;
+      document.getElementById('f-github').value  = entry.github || '';
+      document.getElementById('f-cat').value     = entry.category;
+
+      if (entry.code) {
+        document.getElementById('toggle-code').checked = true;
+        document.getElementById('code-field').style.display = 'block';
+        document.getElementById('f-code').value = entry.code;
+      }
+
+      if (entry.resources && entry.resources.length) {
+        document.getElementById('toggle-resources').checked = true;
+        document.getElementById('resources-field').style.display = 'block';
+        document.getElementById('f-resources').value = entry.resources.join('\n');
+      }
+
+      document.getElementById('modal-overlay').classList.add('open');
+    }
+
+    // ============================================================
+    //  NAVIGATION
+    // ============================================================
     document.getElementById('enter-btn').addEventListener('click', () => {
-      document.getElementById('intro-page').style.display  = 'none';
+      document.getElementById('intro-page').style.display   = 'none';
       document.getElementById('lexicon-page').style.display = 'block';
     });
 
@@ -1062,8 +831,13 @@ print(result)
       document.getElementById('intro-page').style.display   = 'flex';
     });
 
-    // ---- Modal open/close ----
+    // ============================================================
+    //  MODAL OPEN / CLOSE
+    // ============================================================
     document.getElementById('open-modal-btn').addEventListener('click', () => {
+      const pwd = prompt('Password:');
+      if (pwd !== PASSWORD) return;
+      resetModal();
       document.getElementById('modal-overlay').classList.add('open');
     });
 
@@ -1072,49 +846,77 @@ print(result)
     });
 
     document.getElementById('modal-overlay').addEventListener('click', e => {
-      if (e.target === document.getElementById('modal-overlay')) {
+      if (e.target === document.getElementById('modal-overlay'))
         document.getElementById('modal-overlay').classList.remove('open');
-      }
     });
 
-    // ---- Save new entry ----
+    // ============================================================
+    //  TOGGLES
+    // ============================================================
+    document.getElementById('toggle-code').addEventListener('change', function() {
+      document.getElementById('code-field').style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('toggle-resources').addEventListener('change', function() {
+      document.getElementById('resources-field').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // ============================================================
+    //  SAVE / UPDATE ENTRY
+    // ============================================================
     document.getElementById('save-btn').addEventListener('click', () => {
       const term = document.getElementById('f-term').value.trim();
       const def  = document.getElementById('f-def').value.trim();
       if (!term || !def) { alert('Term and definition are required.'); return; }
 
-      const newEntry = {
-        id:        Date.now(),
+      // Duplicate check (ignore current entry when editing)
+      const duplicate = entries.find(e =>
+        e.term.toLowerCase() === term.toLowerCase() && e.id !== editingId
+      );
+      if (duplicate) {
+        alert(`"${term}" already exists in your journal.`);
+        return;
+      }
+
+      const entryData = {
         term,
         definition: def,
-        category:  document.getElementById('f-cat').value,
-        status:     'learning',
-        code:      document.getElementById('f-code').value.trim(),
-        github:    document.getElementById('f-github').value.trim(),
-        resources: document.getElementById('f-resources').value
-                     .split('\n').map(r => r.trim()).filter(Boolean),
-        date:      new Date().toISOString().slice(0, 10),
+        category:   document.getElementById('f-cat').value,
+        code:       document.getElementById('toggle-code').checked
+                      ? document.getElementById('f-code').value.trim()
+                      : '',
+        github:     document.getElementById('f-github').value.trim(),
+        resources:  document.getElementById('toggle-resources').checked
+                      ? document.getElementById('f-resources').value.split('\n').map(r => r.trim()).filter(Boolean)
+                      : [],
+        date:       new Date().toISOString().slice(0, 10),
       };
 
-      entries.unshift(newEntry);
+      if (editingId) {
+        // Update existing
+        const idx = entries.findIndex(e => e.id === editingId);
+        if (idx !== -1) {
+          entries[idx] = { ...entries[idx], ...entryData };
+        }
+      } else {
+        // New entry
+        entries.unshift({ id: Date.now(), ...entryData });
+      }
+
       saveEntries();
-      updateStats();
+      updateNote();
       renderEntries();
       document.getElementById('modal-overlay').classList.remove('open');
-
-      // Clear form
-      ['f-term','f-def','f-code','f-github','f-resources'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
     });
 
-    // ---- Search ----
+    // ============================================================
+    //  SEARCH & FILTER
+    // ============================================================
     document.getElementById('search-input').addEventListener('input', e => {
       searchQuery = e.target.value;
       renderEntries();
     });
 
-    // ---- Filter buttons ----
     document.getElementById('filter-btns').addEventListener('click', e => {
       const btn = e.target.closest('.filter-btn');
       if (!btn) return;
@@ -1124,12 +926,11 @@ print(result)
       renderEntries();
     });
 
-    document.getElementById('toggle-code').addEventListener('change', function() {
-    document.getElementById('code-field').style.display = this.checked ? 'block' : 'none';
-    });
-    // ---- Boot ----
+    // ============================================================
+    //  BOOT
+    // ============================================================
     loadEntries();
-    updateStats();
+    updateNote();
     renderEntries();
   </script>
 
